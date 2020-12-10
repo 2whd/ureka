@@ -1,0 +1,205 @@
+<!DOCTYPE>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<style>
+
+h1, h4{
+color:gold;
+text-align:center;
+}
+
+body{
+background-image:url(living.jpg);
+background-repeat:no-repeat;
+background-attachment:fixed; 
+background-size: cover;
+font-family:serif;
+text-align: justify;
+}
+#navigation{
+list-style:none; 
+font-family:Serif;
+margin: 0;
+padding: 0; 
+font-size: 20px;
+width:170px;
+float:right;
+margin:20px 100px 0 50px;
+}
+    
+    
+#navigation li{
+height: 2em;
+margin-top:20px;
+}
+    
+#navigation li a{
+padding:3px; 
+text-decoration:none; 
+color: gold;
+text-transform: uppercase;
+display:inline-block;
+}
+    
+#navigation li:hover a{
+display:block;
+width:117px;
+color: red;
+}
+    
+#navigation ul {
+display: none;
+list-style: none;
+margin-top: 30px;
+padding: 0;
+}
+    
+#navigation li:hover {
+height:auto;
+}
+    
+#navigation li:hover ul {
+display: block;
+position:relative;
+}
+    
+#navigation ul li{
+margin:0; 
+padding:0; 
+width:120px;
+height:auto;
+background: none;
+}
+    
+#navigation li:hover ul li a {
+padding:0 6px 0 0; 
+color: red;
+background:none;
+}
+    
+#navigation li:hover ul li a:hover{
+background:khaki ;
+color: red;
+}
+
+.r{
+background-color:white;
+width:80%;
+line-height:1.5em;
+margin-left:10%;
+margin-right:0%;
+margin-top:15%;
+margin-bottom:0%;
+padding:1%;
+box-sizing:border-box;
+}
+
+h3{
+text-align:center;
+}
+h5{
+color:gold;
+background-color:gray;
+}
+
+.page:hover a{
+color:gold;
+}
+.page:hover{
+text-decoration:none;
+color:red;
+}
+.page{
+color:gold;
+text-align:center;
+}
+
+</style>
+</head>
+<body>
+
+<h1>LIVING ROOM<h1>
+<h4>Knowledge</h4>
+
+<div class="b">
+    <ul id="navigation">
+      <li class="a"> <a href="">Study</a>
+        <ul>
+          <li class=""> <a href="study.html">Book review</a> </li>
+        </ul>
+      </li>
+    </ul>
+    
+    <ul id="navigation">
+      <li class="a"> <a href="">Bed room</a>
+        <ul>
+          <li class=""> <a href="bedroom.html">About me</a> </li>
+        </ul>
+      </li>
+    </ul>
+    
+    <ul id="navigation">
+      <li class="a"> <a href="">Yard</a>
+        <ul>
+          <li class=""> <a href="yard.html">MY favorite</a> </li>
+         
+        </ul>
+      </li>
+    </ul>
+    
+    <ul id="navigation">
+      <li class="a"> <a href="">welcome</a>
+        <ul>
+          <li class=""> <a href="index.html">Main page</a> </li>
+        </ul>
+      </li>
+    </ul>
+</div>
+
+<div class="r">
+<h3>경영통계</h3>
+<div class="page" h4><a href="livingroom.html">Previous page</a></h4></div>
+<h5>이원분산분석</h5>
+<p>이원분산분석은 집단을 구분하는 독립변수가 두 개인 경우에 모집단 간 평균의 동일성을 검정한다.
+표준패키지인 datasets 패키지에 포함된 ToothGrowth 데이터 셋을 이용하여 이원분산분석을 수행해보자.</p>
+<hr><p>
+> str(ToothGrowth)<br>
+'data.frame':	60 obs. of  3 variables:<br>
+ $ len : num  4.2 11.5 7.3 5.8 6.4 10 11.2 11.2 5.2 7 ...<br>
+ $ supp: Factor w/ 2 levels "OJ","VC": 2 2 2 2 2 2 2 2 2 2 ...<br>
+ $ dose: num  0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 ...
+</p><hr>
+<p>dose 변수는 숫자 벡터로 저장되었는데 이를 factor로 변환해야한다. 그 후 aov()함수를 사용해서  이원분산분석을 수행한다. 각 효과에 따른 요약통계량을 계산하려면 model.tables()함수를 이용하면 된다.<br>
+> model.tables(ToothGrowth.aov, type = "means")<br>
+Tables of means<br>
+Grand mean<br>
+         
+18.81333<br> 
+
+ supp<br> 
+supp<br>
+    OJ     VC<br> 
+20.663 16.963 <br>
+
+ dose  <br>
+dose <br>
+   low    mid   high  <br>
+10.605 19.735 26.100  <br>
+
+ supp:dose  <br>
+    dose <br>
+supp low   mid   high  <br>
+  OJ 13.23 22.70 26.06 <br>
+  VC  7.98 16.77 26.14 <br>
+</p><hr>
+
+<p>주효과와 상호효과 분석결과는 그래프를 통해 시각적으로 확인할 수 있다.
+상자도표(boxplot()함수)를 통해서 비타민C 보충제와 투여량의 조합에 따른 이빨 성장의 정도를 파악해보자</P>
+<img src="rplot2.png">
+<hr>
+
+</div>
+</body>
+</html>
